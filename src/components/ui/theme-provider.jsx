@@ -1,33 +1,12 @@
-"use client"
 
-import { useEffect, useState, createContext, useContext } from "react"
+'use client'
 
-export function ThemeProvider({ children, attribute = "class", defaultTheme = "system", enableSystem = true }) {
-  const [theme, setTheme] = useState(defaultTheme)
+import * as React from 'react'
+import { ThemeProvider as NextThemesProvider, useTheme as useNextTheme } from 'next-themes'
 
-  useEffect(() => {
-    if (enableSystem && defaultTheme === "system") {
-      const darkQuery = window.matchMedia("(prefers-color-scheme: dark)")
-      setTheme(darkQuery.matches ? "dark" : "light")
-    }
-  }, [enableSystem, defaultTheme])
-
-  useEffect(() => {
-    if (attribute === "class") {
-      document.documentElement.classList.remove("dark", "light")
-      document.documentElement.classList.add(theme)
-    }
-  }, [theme, attribute])
-
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+export function ThemeProvider({ children, ...props }) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }
 
-const ThemeContext = createContext({ theme: "light", setTheme: () => {} })
 
-export function useTheme() {
-  return useContext(ThemeContext)
-}
+export const useTheme = useNextTheme

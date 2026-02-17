@@ -1,5 +1,5 @@
 import Checker from "@/components/api-checker/Checker";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import ThemeToggle from "@/components/api-checker/header/ModeToggle";
 import Image from "next/image";
 
 export default function Home() {

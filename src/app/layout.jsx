@@ -1,14 +1,12 @@
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ui/theme-provider"
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ['400','500','600','700','800']
+  weight: ["400", "500", "600", "700", "800"],
 });
-
-
 
 export const metadata = {
   title: "Verifica",
@@ -18,10 +16,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={geistSans.className}>
-      <body
-        className={"bg-background"}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <body className={"bg-background"}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
