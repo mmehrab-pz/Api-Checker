@@ -1,6 +1,8 @@
 import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import { LangToggle } from "./LangToggle";
+import { SaveReq } from "./SaveReq";
+import { UploadReq } from "./UploadReq";
 
 
 export default function Header() {
@@ -10,6 +12,8 @@ export default function Header() {
         api checker
       </h1>
      <div className="flex items-center gap-1.5">
+        <UploadReq />
+        <SaveReq />
         <LangToggle />
         <ModeToggle />
      </div>
