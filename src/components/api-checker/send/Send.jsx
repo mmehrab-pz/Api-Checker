@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { IconSend2 } from "@tabler/icons-react";
 import { Spinner } from "@/components/ui/spinner";
+import { toast } from "sonner"
 
 export default function Send({ onSend, loading }) {
   const [url, setUrl] = useState("");
