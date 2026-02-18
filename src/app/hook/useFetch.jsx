@@ -11,11 +11,10 @@ export default function useFetch() {
       if (!response.ok) {
         throw new Error(result.message || "url not found");
       }
-      toast.success("Event has been created")
+      toast.success("Event has been created", { position: "top-center" })
       setData(result);
     } catch (error) {
-      console.error(error);
-      toast.error(error.message)
+      toast.error(error.message, { position: "top-center" })
     } finally {
       setLoading(false);
     }
